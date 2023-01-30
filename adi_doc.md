@@ -1,4 +1,4 @@
-# Military Tank Detection and Tracking through HD videos using a UAV
+# Military Tank object Detection and Tracking using UAV
 
 ## Problem Statement
 
@@ -7,9 +7,10 @@ An autonomous navigation by a UAV towards its target such as another military ta
 
 ## Solution
 
-![Step-1](https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture1.jpg?raw=true "step-1")
-![Step-2](https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture2.jpg?raw=true "step-2")
-
+<p align="center">
+  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture1.jpg?raw=true" alter="Step-1">
+  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture2.jpg?raw=true" alter="Step-2">
+</p>
 
 - The idea is to transmit and receive real time flight data on Ground Station (PC) and also receive and view live video and run python scripts to control our drone without manual RC input.
 
@@ -31,11 +32,15 @@ An autonomous navigation by a UAV towards its target such as another military ta
 
 ## Workflow
 
-![Workflow](https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/workfloww.jpg?raw=true "Workflow")
+<p>
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/workfloww.jpg?raw=true" alter="Workflow">
+</p>
 
 ## YOLOv7
 
-![YOLOv7](https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/yolov7.jpg?raw=true "YOLOv7 BenchMarks")
+<p>
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/yolov7.jpg?raw=true" alter="yolov7">
+</p>
 
 - The aim behind the implementation of YOLOv7 is to achieve better accuracy as compared with YOLOR, YOLOv5, and YOLOX.
 
@@ -50,7 +55,9 @@ development of YOLOv7 is completely in PyTorch.
 
 ## SORT: Simple Online and Realtime Tracking
 
-![SORT algorithm](https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/SORT.png?raw=true "Architecture of SORT")
+<p>
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/SORT.png?raw=true" alter="SORT">
+</p>
 
 - SORT is a simple online and realtime tracking algorithm for 2D multiple object tracking in video sequences. It uses a Kalman filter to predict the state of each object and a Hungarian algorithm to associate detections to tracked objects.
 
