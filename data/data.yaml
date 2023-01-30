@@ -1,0 +1,17 @@
+names:
+- Bike
+- Bus
+- Car
+- Pedestrian
+- Tank
+- Truck
+nc: 6
+roboflow:
+  license: Public Domain
+  project: car-szyzh
+  url: https://universe.roboflow.com/kmit-z4usi/car-szyzh/dataset/7
+  version: 7
+  workspace: kmit-z4usi
+test: ./test/images
+train: ./train/images
+val: ./valid/images
