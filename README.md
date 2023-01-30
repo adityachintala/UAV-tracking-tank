@@ -1,2 +1,2 @@
 # UAV-tracking-tank
-MILITARY TANK OBJECT DETECTION AND TRACKING USING UAV
+Military Tank Object Detection and Tracking using UAV
