@@ -37,7 +37,7 @@ An autonomous navigation by a UAV towards it's target such as another military t
 
 ## YOLOv7
 
-<p>
+<p align="center">
     <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/yolov7.jpg?raw=true" alter="yolov7">
 </p>
 
