@@ -8,8 +8,7 @@ An autonomous navigation by a UAV towards it's target such as another military t
 ## Solution
 
 <p align="center">
-  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture1.jpg?raw=true" alter="Step-1">
-  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture2.jpg?raw=true" alter="Step-2">
+  <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/drone_2.jpg?raw=true" alter="Steps">
 </p>
 
 - The idea is to receive the video stream from the camera(radio waves), run detections on it, perform calculations and then send the coordinates of the target to the flight controller(using telemetry). 
