@@ -31,7 +31,7 @@ An autonomous navigation by a UAV towards it's target such as another military t
 
 ## Workflow
 
-<p>
+<p align="center">
     <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/workfloww.jpg?raw=true" alter="Workflow">
 </p>
 
