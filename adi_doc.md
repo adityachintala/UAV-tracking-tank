@@ -48,7 +48,7 @@ development of YOLOv7 is completely in PyTorch.
 
 - It is a convolutional neural network that is 49 layers deep. It can run in real-time at 30 FPS.
 
-- It is a one-stage detector that directly predicts bounding boxes and class probabilities for those boxes. It is a very small model(only 17 MB) and very fast, only 22.5 GFLOPS.
+- It is a one-stage detector that directly predicts bounding boxes and class probabilities for those boxes. It is a very small model(only 17 MB) and very fast.
 
 - It is also very accurate, achieving 44.8 mAP on COCO test-dev.
 
@@ -70,9 +70,9 @@ development of YOLOv7 is completely in PyTorch.
 
 - The Flight Controller(PixHawk PX4) we used can communicate with the Onboard Computer(Raspberry Pi or Jetson).
 
-- The Onboard Computer can communicate with the Ground Station using the DroneKit API with the use of Telemetery.
+- The Onboard Computer can communicate with the Ground Station using the DroneKit API with the use of Telemetry.
 
-- The Ground Station can be a laptop or a mobile phone with enough processing power to recieve the video stream from the camera and process the video stream to detect the tanks.
+- The Ground Station can be a laptop or a mobile phone with enough processing power to receive the video stream from the camera and process the video stream to detect the tanks.
 
 - After detecting the tanks and calculating the latitude and longitude of the tanks, the Ground Station can send the latitude and longitude of the tanks to the Onboard Computer using the DroneKit API via Telemetry.
 
