@@ -1,5 +1,9 @@
 # Military Tank object Detection and Tracking using UAV
 
+<p align="center">
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/drone_flying.gif?raw=true" alter="Drone flying">
+</p>
+
 ## Problem Statement
 
 An autonomous navigation by a UAV towards it's target such as another military tank or vehicles - based on the detection, locking-on and following the movements of the target is a much needed application. A UAV flying with a companion computer and HD camera shall detect military tanks and vehicles on the ground and follow them.
