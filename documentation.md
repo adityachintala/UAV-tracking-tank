@@ -28,6 +28,8 @@
 ## GSD
 <hr>
 
+!["GSD"](https://i0.wp.com/visionaerial.com/wp-content/uploads/ground_sample_distange-800px_r1.jpg?resize=400%2C400&ssl=1 "GSD Formula")
+
 - GSD is the Ground Sample Distance which is the distance between the pixels of the image in the real world.
 
 - It basically gives us an idea as to how much area is covered by a single pixel of that particular camera used and for that particular altitude.
