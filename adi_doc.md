@@ -8,8 +8,7 @@ An autonomous navigation by a UAV towards its target such as another military ta
 ## Solution
 
 <p align="center">
-  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture1.jpg?raw=true" alter="Step-1">
-  <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture2.jpg?raw=true" alter="Step-2">
+  <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/drone_2.jpg?raw=true" alter="Steps">
 </p>
 
 - The idea is to transmit and receive real time flight data on Ground Station (PC) and also receive and view live video and run python scripts to control our drone without manual RC input.
