@@ -79,7 +79,7 @@ development of YOLOv7 is completely in PyTorch.
 ## GSD
 
 <p align = "center"r>
-    <img src="https://i0.wp.com/visionaerial.com/wp-content/uploads/ground_sample_distange-800px_r1.jpg?resize=400%2C400&ssl=1" alt="GSD">
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/gsd.jpg?raw=true" alt="GSD">
 </p>
 
 - GSD is the Ground Sample Distance which is the distance between the pixels of the image.
