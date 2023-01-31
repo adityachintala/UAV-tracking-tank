@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-An autonomous navigation by a UAV towards its target such as another military tank or vehicles - based on the detection, locking-on and following the movements of the target is a much needed application. A UAV flying with a companion computer and HD camera shall detect military tanks and vehicles on the ground and follow them.
+An autonomous navigation by a UAV towards it's target such as another military tank or vehicles - based on the detection, locking-on and following the movements of the target is a much needed application. A UAV flying with a companion computer and HD camera shall detect military tanks and vehicles on the ground and follow them.
 
 
 ## Solution
@@ -12,7 +12,7 @@ An autonomous navigation by a UAV towards its target such as another military ta
   <img src=https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/Picture2.jpg?raw=true" alter="Step-2">
 </p>
 
-- The idea is to transmit and receive real time flight data on Ground Station (PC) and also receive and view live video and run python scripts to control our drone without manual RC input.
+- The idea is to receive the video stream from the camera(radio waves), run detections on it, perform calculations and then send the coordinates of the target to the flight controller(using telemetry). 
 
 - We will be using a PixHawk 4 flight controller and a companion computer (Raspberry Pi 4) to control the drone
 
@@ -78,6 +78,10 @@ development of YOLOv7 is completely in PyTorch.
 - After detecting the tanks and calculating the latitude and longitude of the tanks, the Ground Station can send the latitude and longitude of the tanks to the Onboard Computer using the DroneKit API via Telemetry.
 
 ## GSD
+
+<p align = "center"r>
+    <img src="https://i0.wp.com/visionaerial.com/wp-content/uploads/ground_sample_distange-800px_r1.jpg?resize=400%2C400&ssl=1" alt="GSD">
+</p>
 
 - GSD is the Ground Sample Distance which is the distance between the pixels of the image.
 
