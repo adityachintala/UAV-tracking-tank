@@ -144,7 +144,7 @@ development of YOLOv7 is completely in PyTorch.
 
 - run the script
     ``` bash
-    python detect_and_track.py --source 0 --weights best.pt --no-download --baud 57600 --altitude 4 --connect com3 --view-img
+    python detect_and_track.py --source 0 --weights weights.pt --baud 57600 --altitude 4 --connect com3 --view-img
     ```
 
     - (source can be a video file or a webcam, use 0/1/2 as the source for webcam)
