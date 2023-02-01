@@ -531,7 +531,7 @@ def detect(save_img=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str,
-                        default='yolov7.pt', help='model.pt path(s)')
+                        default='weights.pt', help='model.pt path(s)')
     parser.add_argument('--download', action='store_true',
                         help='download model weights automatically')
     parser.add_argument('--no-download', dest='download', action='store_false',
@@ -589,6 +589,10 @@ if __name__ == '__main__':
     parser.set_defaults(download=True)
     opt = parser.parse_args()
 
+    if opt.download and not os.path.exists(str(opt.weights)):
+        print('Model weights not found. Attempting to download now...')
+        download('./')
+
     if (opt.connect == ''):
         print("No connection string provided\nConnecting to SITL")
         import dronekit_sitl
@@ -607,7 +611,7 @@ if __name__ == '__main__':
 
     with torch.no_grad():
         if opt.update:  # update all models (to fix SourceChangeWarning)
-            for opt.weights in ['yolov7.pt']:
+            for opt.weights in ['weights.pt']:
                 detect()
                 strip_optimizer(opt.weights)
         else:

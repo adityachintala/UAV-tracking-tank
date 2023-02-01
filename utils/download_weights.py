@@ -4,7 +4,7 @@ from tqdm.auto import tqdm
 
 
 # Pre-trained weights for YoloV7 model
-WEIGHTS_URL = "https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7.pt"   # ?dl=1"
+WEIGHTS_URL = "https://github.com/adityachintala/UAV-tracking-tank/releases/download/v0.1/weights.pt"   # ?dl=1"
 
 
 def download(dest_path, url=None, file_name=None):
