@@ -42,7 +42,7 @@ An autonomous navigation by a UAV towards it's target such as another military t
 ## YOLOv7
 
 <p align="center">
-    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/yolov7.jpg?raw=true" alter="yolov7">
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/yolov7.jpg?raw=true" alter="yolov7" width="600px">
 </p>
 
 - The aim behind the implementation of YOLOv7 is to achieve better accuracy as compared with YOLOR, YOLOv5, and YOLOX.
@@ -58,7 +58,7 @@ development of YOLOv7 is completely in PyTorch.
 
 ## SORT: Simple Online and Realtime Tracking
 
-<p>
+<p align="center">
     <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/SORT.png?raw=true" alter="SORT">
 </p>
 
@@ -83,7 +83,7 @@ development of YOLOv7 is completely in PyTorch.
 ## GSD
 
 <p align = "center"r>
-    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/gsd.jpg?raw=true" alt="GSD">
+    <img src="https://github.com/adityachintala/UAV-tracking-tank/blob/main/img/gsd.jpg?raw=true" width="500" alt="GSD">
 </p>
 
 - GSD is the Ground Sample Distance which is the distance between the pixels of the image.
@@ -154,20 +154,6 @@ development of YOLOv7 is completely in PyTorch.
     - (connect is the port to which the pixhawk flight controller is connected)
     - (view-img is used to view the output video)
 
-## References and Articles
-
-- [Yolov7 Training on custom data](https://medium.com/augmented-startups/yolov7-training-on-custom-data-b86d23e6623)
-
-- [YOLOv7 object tracking](https://github.com/RizwanMunawar/yolov7-object-tracking)
-
-- [SORT: Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763)
-
-- [Object tracking using DeepSORT](https://learnopencv.com/understanding-multiple-object-tracking-using-deepsort/)
-
-- [DroneKit](https://dronekit.io/)
-
-- [Geopy](https://medium.com/featurepreneur/geopy-dfc65e40f4c9)
-
 ## Applications
 
 - The application of this project is to detect and track military tanks and vehicles on the ground and follow them.
@@ -188,3 +174,25 @@ We have been able to:
 
 - Return to launch point, incase of any failures
 
+## Dataset
+
+The dataset contains 1000+ images of aerial view of tanks which have been acquired by webscraping, google images, video games and from the images of tank we had. The dataset has been annotated using Roboflow.
+<br>
+Roboflow: [Tank Dataset](https://universe.roboflow.com/aerial-detection/pure-tank)
+
+
+## References and Articles
+
+- [YOLOv7 (github)](https://github.com/WongKinYiu/yolov7)
+
+- [YOLOv7 object tracking(SORT)](https://github.com/RizwanMunawar/yolov7-object-tracking)
+
+- [Yolov7 Training on custom data](https://medium.com/augmented-startups/yolov7-training-on-custom-data-b86d23e6623)
+
+- [SORT: Simple Online and Realtime Tracking](https://arxiv.org/abs/1602.00763)
+
+- [Object tracking using DeepSORT](https://learnopencv.com/understanding-multiple-object-tracking-using-deepsort/)
+
+- [DroneKit](https://dronekit.io/)
+
+- [Geopy](https://medium.com/featurepreneur/geopy-dfc65e40f4c9)
