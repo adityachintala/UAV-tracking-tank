@@ -54,7 +54,6 @@ class DroneControl(object):
 
     def launch(self):
         # This functions changes the mode to GUIDED and arms the motors and then takes off to the given altitude
-
         print("Basic pre-arm checks")
         # Don't try to arm until autopilot is ready
         while not self.vehicle.is_armable:
