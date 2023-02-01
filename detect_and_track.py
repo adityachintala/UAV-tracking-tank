@@ -39,7 +39,7 @@ class DroneControl(object):
     def __init__(self, server_enabled=True):
         self.gps_lock = False
         self.altitude = 2.0
-
+        self.geofence_distance = 10
         # Connect to the Vehicle
         print('Connected to vehicle.')
         self.vehicle = vehicle
@@ -118,7 +118,7 @@ class DroneControl(object):
     def geofence(self, lat, lon):
         # using distance formula in meters using geopy
         distance = geodesic((self.home_coords[0], self.home_coords[1]), (lat, lon)).meters
-        if distance > 10:
+        if distance > self.geofence_distance:
             print("Geofence breached")
             # return to launch
             self.return_to_launch()
@@ -202,8 +202,9 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, save_wit
             with open(path + '.txt', 'a') as f:
                 f.write(txt_str)
 
-        # original box coordinates are inverted in x axis so we need to invert them back to get the correct coordinates of the box
+        # original box coordinates are inverted along x axis so we need to invert them back to get the correct coordinates of the box
         new_box = [int(box[0]), img.shape[0] - int(box[1]), int(box[2]), img.shape[0] - int(box[3])]
+
 
         # ............................... Display Details ............................
         # plot the center of the screen in green color
@@ -232,6 +233,7 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, save_wit
             locked_flag = False
         # ..............................................................................
 
+
         # ...................................Angle..............................
         # draw a line from the center of the screen to the center of the object
         cv2.line(img, (int(img.shape[1]/2), int(img.shape[0]/2)), (int((box[0]+box[2])/2), int((box[1]+box[3])/2)), (250, 250, 250), 2)
@@ -244,9 +246,9 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, save_wit
 
         # display the True bearing on the bottom left part of the screen
         # cv2.putText(img, "True Bearing: " + str(relative_bearing), (10, img.shape[0]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, [255, 255, 255], 2)
-
-
         # ..............................................................................
+
+
 
         # ...................................Relative and True Distance..............................
         # below units are in pixels
@@ -264,6 +266,7 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, save_wit
         cv2.putText(img, "True Dist: " + str(int(true_distance)), (10, img.shape[0]-20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, [255, 255, 255], 1)
         # ..............................................................................
 
+
         # ...................................Latitude and Longitude..............................
         # calculate the latitude and longitude of the object
         origin = geopy.Point(drone.vehicle.location.global_relative_frame.lat, drone.vehicle.location.global_relative_frame.lon)
@@ -274,6 +277,7 @@ def draw_boxes(img, bbox, identities=None, categories=None, names=None, save_wit
         cv2.putText(img, "Latitude: " + str(lat), (img.shape[1]-200, img.shape[0]-40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, [255, 255, 255], 1)
         cv2.putText(img, "Longitude: " + str(long), (img.shape[1]-200, img.shape[0]-20), cv2.FONT_HERSHEY_SIMPLEX, 0.6, [255, 255, 255], 1)
         # ..............................................................................
+
 
         # ...................................Goto for drone..............................
         # if the object is not locked and within the geofence go to the object
@@ -361,12 +365,6 @@ def detect(save_img=False):
             next(model.parameters())))  # run once
     old_img_w = old_img_h = imgsz
     old_img_b = 1
-
-    # find current time
-    # current_time = time.time()
-    # location=drone.vehicle.location.global_relative_frame
-    # if drone stays in the same location for more than 10 seconds, it will RTL
-    ###############
 
     for path, img, im0s, vid_cap in dataset:
         img = torch.from_numpy(img).to(device)
@@ -484,8 +482,7 @@ def detect(save_img=False):
                 # ........................................................
 
             # Print time (inference + NMS)
-            print(
-                f'{s}Done. ({(1E3 * (t2 - t1)):.1f}ms) Inference, ({(1E3 * (t3 - t2)):.1f}ms) NMS')
+            print(f'{s}Done. ({(1E3 * (t2 - t1)):.1f}ms) Inference, ({(1E3 * (t3 - t2)):.1f}ms) NMS')
 
             # Stream results
             if view_img:
@@ -525,9 +522,8 @@ def detect(save_img=False):
     print(f'Done. ({time.time() - 0:.3f}s)')
 
     # using geopy to calculate distance between two points
-    # from geopy.distance import geodesic
-    # init_lat_long=lat_long[0]
-    # final_lat_long=lat_long[-1]
+    # init_lat_long = (drone.home_coords[0], drone.home_coords[1])
+    # final_lat_long = (drone.location.global_relative_frame.lat, drone.location.global_relative_frame.lon)
     # distance=geodesic(init_lat_long,final_lat_long).kilometers
     # print("The distance travelled by the vehicle is: ", distance, "km")
 
@@ -587,6 +583,8 @@ if __name__ == '__main__':
                         help='altitude of the drone')
     parser.add_argument('--baud', type=float, default=115200,
                         help='baud rate of the connection')
+    parser.add_argument('--geofence-dist', type=float, default=10,
+                        help='distance from home to set geofence')
 
     parser.set_defaults(download=True)
     opt = parser.parse_args()
@@ -604,7 +602,7 @@ if __name__ == '__main__':
 
     drone = DroneControl()
     drone.altitude = opt.altitude
-    # lat_long.append(vehicle.location.global_relative_frame)
+    drone.geofence_dist = opt.geofence_dist
     drone.launch()
 
     with torch.no_grad():
@@ -615,4 +613,4 @@ if __name__ == '__main__':
         else:
             detect()
 
-# python detect_and_track.py --weights best.pt --source 1 --view-img --baud 57600 --connect com3 --altitude 2 --view-img --device 0
+# python detect_and_track.py --weights best.pt --source 1 --view-img --baud 57600 --connect com3 --altitude 2 --view-img --device 0 --geofence-dist 10
