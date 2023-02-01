@@ -12,6 +12,7 @@ scipy>=1.4.1
 # torchvision>=0.8.1,!=0.13.0
 tqdm>=4.41.0
 protobuf==4.21.6
+pymavlink==2.4.8
 geopy
 dronekit
 dronekit-sitl # for simulation
