@@ -121,7 +121,7 @@ development of YOLOv7 is completely in PyTorch.
 
 - We get the video feed from camera attached to the drone through OTG reciver.
 
-- On video feed we run YOLOv7 to check if there is a tank and if detected we keep a track of the drone through SORT algorithm.
+- On the video feed we run YOLOv7 to check if there is a tank and if detected we keep a track of the drone through SORT algorithm.
 
 - Then we check for two conditions after finding co-ordinates using GSD:
   1)If the tank is inside Geofence or not using Geopy.
