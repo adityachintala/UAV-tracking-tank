@@ -119,13 +119,17 @@ development of YOLOv7 is completely in PyTorch.
 
 ## Yolo + SORT + Geopy
 
-- We have used the YOLOv7 model to detect the tanks, SORT algorithm to track the tanks and Geopy to calculate the latitude and longitude of the tanks.
+- We get the video feed from camera attached to the drone through OTG reciver.
 
-- Once we locate the tanks, we can send the latitude and longitude of the tanks to the drone using the DroneKit API.
+- On video feed we run YOLOv7 to check if there is a tank and if detected we keep a track of the drone through SORT algorithm.
 
-- The tanks are tracked in real time and the drone is able to follow the tanks.
+- Then we check for two conditions after finding co-ordinates using GSD:
+  1)If the tank is inside Geofence or not using Geopy.
+  2)If it is in locked or not-locked (in center of drone).
 
-- The drone is able to return to the launch point in case of any failures.
+- If its inside geofence and not-locked, we send the location in latitude and langitude to the drone through telemetry(Radio) using Dronekit API.
+
+- Now the drone keeps tracking the tank until an error occur or RTL(Return To Launch) in initiated from ground station.
 
 
 ## Implementation
